@@ -132,22 +132,22 @@ public class BluetoothUIManager : MonoBehaviour
     {
         messageNow = message;
         SeisValores = messageNow.Split(',');
-        // Se podría eliminar esta parte
-        // activeMessages.Add(System.DateTime.Now.Hour + ":" + System.DateTime.Now.Minute + ":" + System.DateTime.Now.Second + "." + System.DateTime.Now.Millisecond.ToString("D3") + " " + message);
-        // if (activeMessages.Count > maxMessages)
-        // {
-        //     activeMessages.RemoveAt(0);
-        // }
-        // for (int i = 0; i < activeMessages.Count; i++)
-        // {
-        //     consolePanel.transform.Find("ConsoleContent" + i.ToString()).GetComponent<TMPro.TMP_Text>().text = activeMessages[i];
-        // }
-        // if (activeMessages.Count < maxMessages)
-        // {
-        //     for (int i = activeMessages.Count; i < maxMessages; i++)
-        //     {
-        //         consolePanel.transform.Find("ConsoleContent" + i.ToString()).GetComponent<TMPro.TMP_Text>().text = "";
-        //     }
-        // }
+        // For debugging
+        activeMessages.Add(System.DateTime.Now.Hour + ":" + System.DateTime.Now.Minute + ":" + System.DateTime.Now.Second + "." + System.DateTime.Now.Millisecond.ToString("D3") + " " + message);
+        if (activeMessages.Count > maxMessages)
+        {
+            activeMessages.RemoveAt(0);
+        }
+        for (int i = 0; i < activeMessages.Count; i++)
+        {
+            consolePanel.transform.Find("ConsoleContent" + i.ToString()).GetComponent<TMPro.TMP_Text>().text = activeMessages[i];
+        }
+        if (activeMessages.Count < maxMessages)
+        {
+            for (int i = activeMessages.Count; i < maxMessages; i++)
+            {
+                consolePanel.transform.Find("ConsoleContent" + i.ToString()).GetComponent<TMPro.TMP_Text>().text = "";
+            }
+        }
     }
 }
